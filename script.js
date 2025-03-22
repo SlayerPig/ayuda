@@ -1,58 +1,17 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+function mostrarRutinas() {
+    alert("¡Bienvenido a la sección de Rutinas! Elige tu objetivo:");
+    let objetivo = prompt("¿Quieres: \n1. Bajar de peso \n2. Subir de peso \n3. Ganar músculo \n4. Perder grasa sin bajar de peso?");
+    
+    if (objetivo == 1) {
+        alert("Rutina para bajar de peso: Cardio, HIIT, y ejercicios de resistencia.");
+    } else if (objetivo == 2) {
+        alert("Rutina para subir de peso: Entrenamiento con pesas, más calorías.");
+    } else if (objetivo == 3) {
+        alert("Rutina para ganar músculo: Pesas, entrenamiento de fuerza, y proteína.");
+    } else if (objetivo == 4) {
+        alert("Rutina para perder grasa sin bajar de peso: Cardio moderado, pesas, control de dieta.");
+    } else {
+        alert("Por favor, elige una opción válida.");
+    }
 }
 
-header {
-    background-color: #4CAF50;
-    padding: 15px;
-    color: white;
-}
-
-header nav a {
-    margin: 0 15px;
-    color: white;
-    text-decoration: none;
-}
-
-header nav a:hover {
-    text-decoration: underline;
-}
-
-main {
-    margin: 20px;
-}
-
-section {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    text-align: center;
-}
