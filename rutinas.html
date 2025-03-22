@@ -7,47 +7,115 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Menú de navegación -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="rutinas.html">Rutinas de Ejercicio</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
 
     <header>
         <h1>Rutinas de Ejercicio</h1>
-        <p>Selecciona tu objetivo para comenzar con la rutina ideal para ti.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="playlist.html">Playlist</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <!-- Aquí agregamos las opciones de rutinas -->
         <section>
-            <h2>Elige tu objetivo:</h2>
-            <button onclick="mostrarRutinas('bajarPeso')">Bajar de Peso</button>
-            <button onclick="mostrarRutinas('subirMusculo')">Ganar Músculo</button>
-            <button onclick="mostrarRutinas('perderGrasa')">Perder Grasa sin Bajar de Peso</button>
-            <button onclick="mostrarRutinas('home')">Rutina en Casa</button>
+            <h2>Selecciona tu objetivo:</h2>
+            <form>
+                <label for="objetivo">Elige tu objetivo:</label>
+                <select id="objetivo" onchange="mostrarRutina()">
+                    <option value="">Selecciona...</option>
+                    <option value="bajar">Bajar de peso</option>
+                    <option value="ganar">Ganar músculo</option>
+                    <option value="grasa">Perder grasa sin bajar de peso</option>
+                    <option value="casa">Rutina en casa</option>
+                </select>
+            </form>
         </section>
 
-        <section id="rutinasSeleccionadas"></section>
+        <section id="rutinaSeleccionada" style="display:none;">
+            <h2 id="tituloRutina"></h2>
+            <div id="descripcionRutina"></div>
+        </section>
     </main>
 
+    <footer>
+        <p>&copy; 2025 Tu Proyecto - Todos los derechos reservados</p>
+        <p>Contacto: <a href="mailto:tuemail@dominio.com">tuemail@dominio.com</a></p>
     </footer>
 
     <script>
-        function mostrarRutinas(tipo) {
-            const rutinas = {
-                bajarPeso: "Rutinas para bajar de peso: Correr, HIIT, Cardio.",
-                subirMusculo: "Rutinas para ganar músculo: Levantamiento de pesas, entrenamiento con bandas.",
-                perderGrasa: "Rutinas para perder grasa sin bajar de peso: Ejercicio aeróbico moderado, yoga.",
-                home: "Rutinas en casa: Flexiones, abdominales, sentadillas, estiramientos."
-            };
+        function mostrarRutina() {
+            var objetivo = document.getElementById("objetivo").value;
+            var titulo = document.getElementById("tituloRutina");
+            var descripcion = document.getElementById("descripcionRutina");
+            var rutinaSeleccionada = document.getElementById("rutinaSeleccionada");
 
-            document.getElementById('rutinasSeleccionadas').innerText = rutinas[tipo];
+            if (objetivo) {
+                rutinaSeleccionada.style.display = "block"; // Mostrar la sección de rutina
+
+                // Detalles de las rutinas
+                if (objetivo == "bajar") {
+                    titulo.innerHTML = "Rutina para Bajar de Peso";
+                    descripcion.innerHTML = `
+                        <p>Para bajar de peso, es importante combinar el ejercicio cardiovascular con fuerza. Aquí tienes una rutina básica:</p>
+                        <ul>
+                            <li>Correr en la caminadora (20 minutos)</li>
+                            <li>Saltos de tijera (3 series de 15 repeticiones)</li>
+                            <li>Flexiones de brazos (3 series de 12 repeticiones)</li>
+                            <li>Sentadillas (3 series de 15 repeticiones)</li>
+                            <li>Ab twist (3 series de 20 repeticiones)</li>
+                        </ul>
+                        <p>Recuerda mantener una dieta balanceada y beber mucha agua.</p>
+                    `;
+                } else if (objetivo == "ganar") {
+                    titulo.innerHTML = "Rutina para Ganar Músculo";
+                    descripcion.innerHTML = `
+                        <p>Para ganar músculo, necesitas incorporar ejercicios de fuerza. Aquí tienes una rutina para empezar:</p>
+                        <ul>
+                            <li>Press de banca (4 series de 10 repeticiones)</li>
+                            <li>Sentadillas con barra (4 series de 10 repeticiones)</li>
+                            <li>Pull-ups (4 series de 8 repeticiones)</li>
+                            <li>Elevación de piernas (3 series de 15 repeticiones)</li>
+                            <li>Press de hombros (3 series de 10 repeticiones)</li>
+                        </ul>
+                        <p>Es importante aumentar gradualmente los pesos y descansar lo suficiente entre sesiones.</p>
+                    `;
+                } else if (objetivo == "grasa") {
+                    titulo.innerHTML = "Rutina para Perder Grasa Sin Bajar de Peso";
+                    descripcion.innerHTML = `
+                        <p>Si deseas perder grasa sin perder masa muscular, enfócate en una combinación de ejercicios de fuerza y cardio:</p>
+                        <ul>
+                            <li>Circuito HIIT (20 minutos)</li>
+                            <li>Sentadillas con mancuernas (3 series de 15 repeticiones)</li>
+                            <li>Burpees (3 series de 10 repeticiones)</li>
+                            <li>Curl de bíceps con mancuernas (3 series de 12 repeticiones)</li>
+                            <li>Mountain climbers (3 series de 30 segundos)</li>
+                        </ul>
+                        <p>Una dieta alta en proteínas ayudará a mantener tu masa muscular.</p>
+                    `;
+                } else if (objetivo == "casa") {
+                    titulo.innerHTML = "Rutina de Ejercicio en Casa";
+                    descripcion.innerHTML = `
+                        <p>Si no tienes acceso a un gimnasio, puedes hacer una excelente rutina en casa:</p>
+                        <ul>
+                            <li>Flexiones de brazos (3 series de 15 repeticiones)</li>
+                            <li>Sentadillas con peso (puedes utilizar una mochila con libros adentro) (4 series de 20 repeticiones)</li>
+                            <li>Plancha (3 series de 30 segundos)</li>
+                            <li>Lunges (3 series de 15 repeticiones por pierna)</li>
+                            <li>Saltos de tijera (3 series de 20 repeticiones)</li>
+                        </ul>
+                        <p>Todo lo que necesitas es tu propio peso corporal y un poco de espacio.</p>
+                    `;
+                }
+            } else {
+                rutinaSeleccionada.style.display = "none"; // Ocultar la sección de rutina
+            }
         }
     </script>
+
 </body>
 </html>
+
 
