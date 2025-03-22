@@ -3,35 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playlist de Música</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Playlist para Rutina de Ejercicio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <header>
-        <h1>Playlist de Música</h1>
+        <h1>Playlist para tu rutina de ejercicio</h1>
         <nav>
-            <a href="index.html">Inicio</a> |
-            <a href="rutinas.html">Rutinas</a> |
-            <a href="playlist.html">Playlist</a> |
-            <a href="contacto.html">Contacto</a>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="rutinas.html">Rutinas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
         <section>
-            <h2>Escucha música para tu bienestar</h2>
-            <p>Agrega tus canciones favoritas a esta playlist en Spotify.</p>
-            <iframe src="https://open.spotify.com/playlist/4J38i8s0kRQHpyM8jXHXxV?si=76313d12ce7d41c9" width="300" height="380" frameborder="0"></iframe>
+            <h2>Escucha música mientras haces ejercicio</h2>
+            <p>Haz clic en el siguiente enlace para escuchar música mientras haces ejercicio. Si tienes la aplicación de Spotify instalada, se abrirá directamente allí, sino, se abrirá la versión web:</p>
+            <a href="https://open.spotify.com/playlist/4J38i8s0kRQHpyM8jXHXxV?si=38310c4d91d34449" target="_blank">Abrir Playlist en Spotify</a>
         </section>
     </main>
 
-    <footer>
-        <p>Materia: Construye Paginas Web y APP Cliente</p>
-        <p>Nombre: Alex Garcia Montoya, Jose Abelardo Morales Chavez</p>
-        <p>Grupo: 4APGM</p>
-        <p>Fecha: 08/04/25</p>
     </footer>
+
+    <script>
+        // Intentamos abrir la app de Spotify en dispositivos móviles
+        const spotifyLink = "https://open.spotify.com/playlist/4J38i8s0kRQHpyM8jXHXxV?si=38310c4d91d34449";
+        const appLink = "https://open.spotify.com/playlist/4J38i8s0kRQHpyM8jXHXxV?si=38310c4d91d34449";
+
+        // Verificamos si el dispositivo tiene Spotify instalado
+        function openSpotify() {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // Para dispositivos móviles, intentamos abrir la app de Spotify
+                window.location.href = appLink;
+                setTimeout(() => {
+                    // Si no se abre la app, redirigimos a la versión web
+                    window.location.href = spotifyLink;
+                }, 2000);  // Esperamos 2 segundos antes de redirigir a la web
+            } else {
+                // Si es una PC o no se pudo abrir la app, redirigimos a la web
+                window.location.href = spotifyLink;
+            }
+        }
+
+        // Llamamos a la función de apertura de Spotify cuando se hace clic en el enlace
+        document.querySelector('a').addEventListener('click', function(event) {
+            event.preventDefault();  // Prevenimos el comportamiento por defecto (abrir directamente)
+            openSpotify();
+        });
+    </script>
 
 </body>
 </html>
+
