@@ -35,15 +35,14 @@
             <h2>Subir de Peso</h2>
             <p>Esta rutina está diseñada para aquellos que desean ganar masa muscular. Incluye ejercicios de fuerza y acondicionamiento con una mayor intensidad.</p>
             
-            <!-- Opción de elegir entrenamiento -->
             <h3>Selecciona tu tipo de entrenamiento</h3>
             <form id="entrenamiento">
                 <label>
-                    <input type="radio" name="tipo_entrenamiento" value="casa" id="entrenamientoCasa">
+                    <input type="radio" name="tipo_entrenamiento" value="casa" id="entrenamientoCasa" onclick="mostrarRutina('casaRutina', 'gimnasioRutina')">
                     Entrenamiento en Casa
                 </label><br>
                 <label>
-                    <input type="radio" name="tipo_entrenamiento" value="gimnasio" id="entrenamientoGimnasio">
+                    <input type="radio" name="tipo_entrenamiento" value="gimnasio" id="entrenamientoGimnasio" onclick="mostrarRutina('gimnasioRutina', 'casaRutina')">
                     Entrenamiento en Gimnasio
                 </label><br>
             </form>
@@ -51,19 +50,6 @@
             <!-- Rutina en Casa -->
             <div id="casaRutina" style="display:none;">
                 <h3>Entrenamiento en Casa - Subir de Peso</h3>
-                <ul>
-                    <li>Sentadillas: 4x12</li>
-                    <li>Flexiones: 4x12</li>
-                    <li>Dominadas asistidas: 3x12</li>
-                    <li>Elevaciones de talones: 3x15</li>
-                    <li>Curl de bíceps con mancuernas: 3x12</li>
-                </ul>
-                <p>Realiza estos ejercicios con descansos de 1 minuto entre series.</p>
-            </div>
-
-            <!-- Rutina en Gimnasio -->
-            <div id="gimnasioRutina" style="display:none;">
-                <h3>Entrenamiento en Gimnasio - Subir de Peso</h3>
                 <ul>
                     <li>Día 1: Boxeo + Pecho + Tríceps y Cuello</li>
                     <ul>
@@ -155,6 +141,19 @@
                         <li>Curl isométrico (mantén la contracción 5-10s en la parte alta) 3x8</li>
                         <li></li>
                     </ul>
+
+                <p>Realiza estos ejercicios con descansos de 1 minuto entre series.</p>
+            </div>
+
+            <!-- Rutina en Gimnasio -->
+            <div id="gimnasioRutina" style="display:none;">
+                <h3>Entrenamiento en Gimnasio - Subir de Peso</h3>
+                <ul>
+                    <li>Sentadillas con barra: 4x10</li>
+                    <li>Press de banca: 4x10</li>
+                    <li>Prensa de piernas: 4x12</li>
+                    <li>Curl de bíceps con barra: 4x12</li>
+                    <li>Dominadas: 4x12</li>
                 </ul>
             </div>
         </section>
@@ -164,15 +163,14 @@
             <h2>Bajar de Peso</h2>
             <p>La rutina de bajar de peso se enfoca en ejercicios que aumentan el gasto calórico, combinando ejercicios cardiovasculares con fuerza.</p>
             
-            <!-- Opción de elegir entrenamiento -->
             <h3>Selecciona tu tipo de entrenamiento</h3>
             <form id="entrenamientoBajarPeso">
                 <label>
-                    <input type="radio" name="tipo_entrenamiento" value="casaBajar" id="entrenamientoCasaBajar">
+                    <input type="radio" name="tipo_entrenamiento" value="casaBajar" id="entrenamientoCasaBajar" onclick="mostrarRutina('casaRutinaBajar', 'gimnasioRutinaBajar')">
                     Entrenamiento en Casa
                 </label><br>
                 <label>
-                    <input type="radio" name="tipo_entrenamiento" value="gimnasioBajar" id="entrenamientoGimnasioBajar">
+                    <input type="radio" name="tipo_entrenamiento" value="gimnasioBajar" id="entrenamientoGimnasioBajar" onclick="mostrarRutina('gimnasioRutinaBajar', 'casaRutinaBajar')">
                     Entrenamiento en Gimnasio
                 </label><br>
             </form>
@@ -214,10 +212,14 @@
 
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        function mostrarRutina(mostrar, ocultar) {
+            document.getElementById(mostrar).style.display = 'block';
+            document.getElementById(ocultar).style.display = 'none';
+        }
+    </script>
+
 </body>
 </html>
-
-
 
 
