@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playlist de musica</title>
+    <title>Playlist para tu bienestar</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Playlist de musica
+        <h1>Playlist para tu rutina de ejercicio</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -22,42 +22,11 @@
     <main>
         <section>
             <h2>Escucha música para tu bienestar</h2>
-            <p>Haz clic en el siguiente enlace para agregar y escuchar tus canciones favoritas en esta playlist de Spotify (tambien veras las de otros usuarios, de esta forma puedes descubrir nuevos gustos musicales :D).</p>
-            <a href="https://open.spotify.com/playlist/4J38i8s0kRQHpyM8jXHXxV?si=38310c4d91d34449" target="_blank">Abrir Playlist en Spotify</a>
+            <p>Haz clic en el siguiente enlace para escuchar tu musica favorita y la de otros (asi descubres nuevos gustos musicales :D):</p>
+            <a href="https://open.spotify.com/playlist/4J38i8s0kRQHpyM8jXHXxV?si=51a04fd223c64416" target="_blank">Abrir Playlist en Spotify</a>
         </section>
     </main>
-
-    </footer>
-
-    <script>
-        // Intentamos abrir la app de Spotify en dispositivos móviles
-        const spotifyLink = "https://open.spotify.com/playlist/4J38i8s0kRQHpyM8jXHXxV?si=38310c4d91d34449";
-        const appLink = "https://open.spotify.com/playlist/4J38i8s0kRQHpyM8jXHXxV?si=38310c4d91d34449";
-
-        // Verificamos si el dispositivo tiene Spotify instalado
-        function openSpotify() {
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-            if (isMobile) {
-                // Para dispositivos móviles, intentamos abrir la app de Spotify
-                window.location.href = appLink;
-                setTimeout(() => {
-                    // Si no se abre la app, redirigimos a la versión web
-                    window.location.href = spotifyLink;
-                }, 2000);  // Esperamos 2 segundos antes de redirigir a la web
-            } else {
-                // Si es una PC o no se pudo abrir la app, redirigimos a la web
-                window.location.href = spotifyLink;
-            }
-        }
-
-        // Llamamos a la función de apertura de Spotify cuando se hace clic en el enlace
-        document.querySelector('a').addEventListener('click', function(event) {
-            event.preventDefault();  // Prevenimos el comportamiento por defecto (abrir directamente)
-            openSpotify();
-        });
-    </script>
-
 </body>
 </html>
+
 
