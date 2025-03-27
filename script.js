@@ -14,4 +14,3 @@ function mostrarRutinas() {
         alert("Por favor, elige una opción válida.");
     }
 }
-
