@@ -1,2 +1,1 @@
-> ### ***Este proyecto busca ayudar a los jovenes que esten pasando por malos episodios en su vida***
-[AAA](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRJVY-uzjBLnXxf4Qo8hQann0AJ3ka4mm9Ew&s)
+> ### ***Decidimos realizar este proyecto debido a experiencias que los jóvenes vivimos, y por ello, nuestro deseo es poder dar apoyo a estos jóvenes que sufren con problemas en la salud***
