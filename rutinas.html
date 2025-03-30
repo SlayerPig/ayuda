@@ -4,221 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutinas de Ejercicio</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #rutina { margin-top: 20px; padding: 15px; border: 1px solid #ccc; display: inline-block; width: 50%; }
+    </style>
 </head>
 <body>
+    <h2>Selecciona un día para ver la rutina:</h2>
+    
+    <select id="diaSeleccionado" onchange="mostrarRutina()">
+        <option value="">-- Selecciona un día --</option>
+        <option value="lunes">Lunes</option>
+        <option value="martes">Martes</option>
+        <option value="miercoles">Miércoles</option>
+        <option value="jueves">Jueves</option>
+        <option value="viernes">Viernes</option>
+        <option value="sabado">Sábado</option>
+        <option value="domingo">Domingo</option>
+    </select>
 
-    <header>
-        <h1>Rutinas de Ejercicio para Diferentes Objetivos</h1>
-        <nav>
-            <ul>
-                <a href="index.html">Inicio</a>
-                <a href="playlist.html">Playlist</a>
-                <a href="contacto.html">Contacto</a>
-                <a href="informacion.html">Informacion</a>
-            </ul>
-        </nav>
-    </header>
+    <div id="rutina"></div>
 
-    <main>
-        <section id="objetivos">
-            <h2>Elige tu Objetivo</h2>
-            <p>Selecciona el objetivo que más se acomode a tus necesidades y sigue la rutina correspondiente.</p>
-            <ul>
-                <li><a href="#subirPeso">Subir de Peso</a></li>
-                <li><a href="#bajarPeso">Bajar de Peso</a></li>
-                <li><a href="#bajarGrasa">Bajar Grasa sin Perder Peso</a></li>
-            </ul>
-        </section>
+    <script>
+        function mostrarRutina() {
+            let rutinas = {
+                lunes: "💪 Piernas y Glúteos: Sentadillas, Peso muerto, Estocadas.",
+                martes: "🏋️‍♂️ Pecho y Tríceps: Press de banca, Fondos, Flexiones.",
+                miercoles: "🚴 Cardio y Core: Correr, Saltos, Abdominales.",
+                jueves: "🏋️ Espalda y Bíceps: Dominadas, Remo con barra, Curl de bíceps.",
+                viernes: "🔥 HIIT: Burpees, Saltos, Mountain climbers.",
+                sabado: "🏃 Resistencia: Correr, Natación, Saltos con cuerda.",
+                domingo: "🧘 Descanso activo: Estiramientos, Yoga, Movilidad."
+            };
 
-        <!-- Subir de peso -->
-        <section id="subirPeso">
-            <h2>Subir de Peso</h2>
-            <p>Esta rutina está diseñada para aquellos que desean ganar masa muscular. Incluye ejercicios de fuerza y acondicionamiento con una mayor intensidad.</p>
-            
-            <h3>Selecciona tu tipo de entrenamiento</h3>
-            <form id="entrenamiento">
-                <label>
-                    <input type="radio" name="tipo_entrenamiento" value="casa" id="entrenamientoCasa" onclick="mostrarRutina('casaRutina', 'gimnasioRutina')">
-                    Entrenamiento en Casa
-                </label><br>
-                <label>
-                    <input type="radio" name="tipo_entrenamiento" value="gimnasio" id="entrenamientoGimnasio" onclick="mostrarRutina('gimnasioRutina', 'casaRutina')">
-                    Entrenamiento en Gimnasio
-                </label><br>
-            </form>
+            let dia = document.getElementById("diaSeleccionado").value;
+            let rutinaDiv = document.getElementById("rutina");
 
-            <!-- Rutina en Casa -->
-            <div id="casaRutina" style="display:none;">
-                <h3>Entrenamiento en Casa - Subir de Peso</h3>
-                <ul>
-                    <li>Día 1: Boxeo + Pecho + Tríceps y Cuello</li>
-                    <ul>
-                        <li>Boxeo:</li>
-                        <li>Sombra: 4x3 minutos (intensidad alta, movimientos agresivos).</li>
-                        <li>Combinaciones rápidas al saco pesado: 5x3 minutos (jab, cruzado, ganchos).</li>
-                        <li>Trabajo de esquivas y desplazamientos: 4x2 minutos.</li>
-                        <li>Salta llevando los talones hacia los glúteos mientras mantienes el ritmo, como si estuvieras corriendo en el lugar. Duración: 3x30 segundos con descansos de 10 segundos.</li>
-                        <li>Fuerza: Pecho y Tríceps</li>
-                        <li>Flexiones declinadas: 4x8.</li>
-                        <li>Flexiones de diamante: 4x10.</li>
-                        <li>Flexiones rusas: 3x10.</li>
-                        <li>Flexiones diamante: 3x10.</li>
-                        <li>Fondos de triceps en banco: 4x12.</li>
-                        <li>Extensiones de tríceps por encima de la cabeza: 3x12</li>
-                        <li>Patadas de tríceps: 3x12.</li>
-                        <li>Flexiones esfinge: 3x15</li>
-                        <li>Curl de cuello: 4x15</li>
-                        <li>Extensión de cuello: 4x15</li>
-                        <li>Elevaciones de cuello: 4x15</li>
-                    </ul>
-                    <li>Día 2: Boxeo Técnico + Espalda y Bíceps</li>
-                    <ul>
-                        <li>Boxeo Técnico:</li>
-                        <li>Sombra: 5x2 minutos con enfoque en técnica (combinaciones largas).</li>
-                        <li>Sparring ligero (si es posible): 4x3 minutos.</li>
-                        <li>Trabajo al saco de velocidad: 4x2 minutos.</li>
-                        <li>Abdominales específicas para boxeo: 4x20 crunches con giro.</li>
-                        <li>Fuerza: Espalda y Bíceps</li>
-                        <li>Dominadas: 4x máximo esfuerzo.</li>
-                        <li>Remo con mancuerna unilateral: 4x10-12.</li>
-                        <li>Aperturas con mochila: 3x12</li>
-                        <li>Curl con barra (mochila): 4x8-10 (carga pesada, explosivo al subir, controlado al bajar)</li>
-                        <li>Curl martillo: 3x8-12</li>
-                        <li>Curl concentrado: 3x12-15</li>
-                        <li>Curl isométrico (mantén la contracción 5-10s en la parte alta): 3x8</li>
-                    </ul>
-                    <li>Día 3: Acondicionamiento + Hombros y Antebrazos</li>
-                    <ul>
-                        <li>Acondicionamiento (Boxeo)</li>
-                        <li>Talones al glúteo: Duración: 3x30 segundos</li>
-                        <li>Intervalos de golpeo al saco pesado: 6x3 minutos (30 segundos de máxima intensidad por minuto)</li>
-                        <li>Esquivas con cuerda: 5 minutos</li>
-                        <li>Fuerza: Hombros y Antebrazos</li>
-                        <li>Press militar con mancuerna: 4x10</li>
-                        <li>Elevaciones laterales: 4x12</li>
-                        <li>Encogimiento de hombros con mancuerna: 3x15</li>
-                        <li>Flexion de hombro</li>
-                        <li>Antebrazos</li>
-                        <li>Flexiones de muñeca (supino y pronado): 3x15.</li>
-                        <li>Curl martillo: 3x12.</li>
-                    <li>Día 4: Boxeo + Piernas y Abdomen + Triceps y Cuello</li>
-                    <ul>
-                        <li>Circuito de golpes: 6 rondas (saco pesado, sombra, saco de velocidad)</li>
-                        <li>Trabajo explosivo: 5x30 segundos de golpes potentes.</li>
-                        <li>Shadowboxing con mancuernas ligeras: 3x3 minutos.</li>
-                        <li>Flexiones normales: 3x30</li>
-                        <li>Curl martillo → 3x8-12<li>
-                        <li>Curl concentrado → 3x12-15</li>
-                        <li>Curl isométrico (mantén la contracción 5-10s en la parte alta) 3x8</li>
-                        <li>Plancha: 3x45-60 segundos</li>
-                        <li>Crunches: 4x20.</li>
-                        <li>Abdominales bicicleta: 3x15-20 por lado</li>
-                        <li>Plancha lateral: 3x30-45 segundos por lado</li>
-                    <li>Día 5: Recuperación Activa o Técnica Ligera
-                    <ul>
-                        <li>Sombra relajada: 3x2 minutos.</li>
-                        <li>Trabajo de desplazamientos: 10 minutos.</li>
-                        <li>Elevaciones frontales: 3x12.</li>
-                        <li>Flexiones de muñeca (supino y pronado): 4x15.</li>
-                        <li>Curl martillo: 3x12</li>
-                        <li>Flexiones rusas: 3x10</li>
-                        <li>Burpees: 3x15</li>
-                    <li>Dia 6: Ejercicios de fuerza
-                    <ul>
-                        <li>Flexiones explosivas – 4x10-15 (o normales si no puedes explosivas)</li>
-                        <li>fondos en superficie elevada – 3x8-12 (usa una silla o banco)</li>
-                        <li>Flexiones diamante – 3x10-12 (para tríceps y pecho interno)</li>
-                        <li>Pike push-ups – 3x8-12 (para hombros)</li>
-                        <li>Plancha + Rodillas al pecho – 3x30-40s</li>
-                        <li>Elevaciones de piernas colgado o en suelo – 3x12-15</li>
-                    <li>Dia 7: Ejercicios de fuerza 2
-                        <li>Flexiones de muñeca (supino y pronado): 4x15.</li>
-                        <li>Flexiones normales: 3x15 (con peso)</li>
-                        <li>Curl martillo: 3x12</li>
-                        <li>Crunches: 4x20</li>
-                        <li>Curl con barra (mochila) → 4x8-10 (carga pesada, explosivo al subir, controlado al bajar)</li>
-                        <li>Curl concentrado → 3x12-15</li>
-                        <li>Curl isométrico (mantén la contracción 5-10s en la parte alta) 3x8</li>
-                        <li></li>
-                    </ul>
-
-                <p>Realiza estos ejercicios con descansos de 1 minuto entre series.</p>
-            </div>
-
-            <!-- Rutina en Gimnasio -->
-            <div id="gimnasioRutina" style="display:none;">
-                <h3>Entrenamiento en Gimnasio - Subir de Peso</h3>
-                <ul>
-                    <li>Sentadillas con barra: 4x10</li>
-                    <li>Press de banca: 4x10</li>
-                    <li>Prensa de piernas: 4x12</li>
-                    <li>Curl de bíceps con barra: 4x12</li>
-                    <li>Dominadas: 4x12</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Bajar de peso -->
-        <section id="bajarPeso">
-            <h2>Bajar de Peso</h2>
-            <p>La rutina de bajar de peso se enfoca en ejercicios que aumentan el gasto calórico, combinando ejercicios cardiovasculares con fuerza.</p>
-            
-            <h3>Selecciona tu tipo de entrenamiento</h3>
-            <form id="entrenamientoBajarPeso">
-                <label>
-                    <input type="radio" name="tipo_entrenamiento" value="casaBajar" id="entrenamientoCasaBajar" onclick="mostrarRutina('casaRutinaBajar', 'gimnasioRutinaBajar')">
-                    Entrenamiento en Casa
-                </label><br>
-                <label>
-                    <input type="radio" name="tipo_entrenamiento" value="gimnasioBajar" id="entrenamientoGimnasioBajar" onclick="mostrarRutina('gimnasioRutinaBajar', 'casaRutinaBajar')">
-                    Entrenamiento en Gimnasio
-                </label><br>
-            </form>
-
-            <!-- Rutina en Casa -->
-            <div id="casaRutinaBajar" style="display:none;">
-                <h3>Entrenamiento en Casa - Bajar de Peso</h3>
-                <ul>
-                    <li>Cardio (trote o cuerda): 30 minutos</li>
-                    <li>Sentadillas: 3x15</li>
-                    <li>Flexiones: 3x12</li>
-                    <li>Ab twist: 3x20</li>
-                    <li>Elevaciones de piernas: 4x12</li>
-                </ul>
-            </div>
-
-            <!-- Rutina en Gimnasio -->
-            <div id="gimnasioRutinaBajar" style="display:none;">
-                <h3>Entrenamiento en Gimnasio - Bajar de Peso</h3>
-                <ul>
-                    <li>Cardio (cinta o bicicleta): 30 minutos</li>
-                    <li>Sentadillas con barra: 4x12</li>
-                    <li>Flexiones de pecho: 4x12</li>
-                    <li>Abdominales: 4x20</li>
-                    <li>Remo con barra: 3x12</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Bajar grasa sin perder peso -->
-        <section id="bajarGrasa">
-            <h2>Bajar Grasa sin Perder Peso</h2>
-            <p>Esta rutina es ideal para aquellos que desean reducir grasa mientras mantienen su masa muscular.</p>
-            <ul>
-                <li>Entrenamiento de alta intensidad en intervalos (HIIT)</li>
-                <li>Combinación de ejercicios de fuerza con cardio</li>
-            </ul>
-        </section>
-
-    </main>
-
-    <script>s
-        function mostrarRutina(mostrar, ocultar) {
-            document.getElementById(mostrar).style.display = 'block';
-            document.getElementById(ocultar).style.display = 'none';
+            if (dia) {
+                rutinaDiv.innerHTML = `<h3>Rutina para ${dia.charAt(0).toUpperCase() + dia.slice(1)}</h3><p>${rutinas[dia]}</p>`;
+            } else {
+                rutinaDiv.innerHTML = "";
+            }
         }
     </script>
-
 </body>
 </html>
